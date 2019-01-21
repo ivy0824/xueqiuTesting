@@ -1,17 +1,15 @@
 package page;
 
 import driver.Driver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import sun.applet.Main;
-
-import javax.print.DocFlavor;
 import java.util.ArrayList;
-import java.util.List;
-
 import static page.BassPage.find;
 
-public class SearchPage {
+public class SearchPage extends BassPage {
 
     public SearchPage search(String keyword){
         find(By.className("android.widget.EditText")).sendKeys(keyword);
@@ -19,7 +17,7 @@ public class SearchPage {
     }
 
     public MainPage cancel(){
-        find(By.id("catiob_close")).click();
+        find(By.id("action_close")).click();
         return new MainPage();
     }
 
@@ -36,9 +34,14 @@ public class SearchPage {
         return this;
     }
 
-    public SearchPage addSelected(){
-        find(By.xpath("//*[contains(@reaource-id,'follow) and contains(@resource-id,'btn)]")).click();
-        return this;
+    public ArrayList<String> addSelected(){
+        ArrayList<String> array=new ArrayList<String>();
+        AndroidElement select=(AndroidElement) find(By.xpath("//*[contains(@resource-id,'follow) and contains(@resource-id,'_btn)]"));
+//        array.add(select.getAttribute("content-desc"));
+        select.click();
+        AndroidElement select2=(AndroidElement) find(By.xpath("//*[contains(@resource-id,'follow) and contains(@resource-id,'_btn)]"));
+//        array.add(select2.getAttribute("resource-id"));
+        return array;
     }
 
     public SearchPage removeSelected(){

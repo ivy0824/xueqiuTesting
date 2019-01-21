@@ -1,12 +1,11 @@
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import junit.framework.TestCase;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.android.AndroidKeyCode;
 
@@ -14,7 +13,7 @@ public class XueqiuTest {
 
     private AndroidDriver driver;
 
-    @Before
+    @BeforeAll
     public void setUp() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "android");

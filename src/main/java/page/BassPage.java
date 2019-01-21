@@ -1,12 +1,18 @@
 package page;
 
 import driver.Driver;
+import io.appium.java_client.android.AndroidElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class BassPage {
-    static WebElement find(By locator){
-        return Driver.getCurentDriver().findElement(locator);
+    static AndroidElement find(By locator){
+        try {
+            return Driver.getCurentDriver().findElement(locator);
+        }catch(Exception e){
+            Driver.getCurentDriver().findElement(text("下次再说")).click();
+            return Driver.getCurentDriver().findElement(locator);
+        }
     }
 
     static By locate(String locator){
