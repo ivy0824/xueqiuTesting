@@ -31,8 +31,8 @@ public class SearchTest {
             "alibaba,阿里巴巴",
             "sogo,搜狗"
     })
-    //从上到下，先创建页面，然后封装方法
-    public void 密码登录(String keyword,String name){
+
+    public void 搜索测试(String keyword,String name){
         String content = searchPage.search(keyword).getAll().get(0);
         assertThat(content, equalTo(name));
     }
