@@ -27,16 +27,16 @@ public class Driver {
         URL remoteUrl = new URL("http://localhost:4723/wd/hub");
 
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(8, TimeUnit.SECONDS);
 
         //点击权限设置
-        driver.findElementById("com.xueqiu.android:id/open").click();
-        driver.findElementById("com.android.packageinstaller:id/permission_allow_button").click();
-        driver.findElementById("com.android.packageinstaller:id/permission_allow_button").click();
+//        driver.findElementById("com.xueqiu.android:id/open").click();
+//        driver.findElementById("com.android.packageinstaller:id/permission_allow_button").click();
+//        driver.findElementById("com.android.packageinstaller:id/permission_allow_button").click();
 
     }
 
-    public static AndroidDriver<AndroidElement> getCurentDriver(){
+    public static AndroidDriver<AndroidElement> getCurrentDriver(){
         return driver;
 
     }

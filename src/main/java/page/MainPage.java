@@ -11,6 +11,10 @@ import static page.BassPage.find;
 public class MainPage extends BassPage {
 
     private static By profile = By.id("user_profile_icon");
+    private static By search=By.id("home_search");
+    private static By zixuan = By.id("");
+
+
     public static MainPage start() throws MalformedURLException {
 
         Driver.start();
@@ -23,7 +27,12 @@ public class MainPage extends BassPage {
     }
 
     public SearchPage gotoSearch(){
-        find(By.id("home_search")).click();
+        find(search).click();
         return new SearchPage();
+    }
+
+    public ZiXuanPage gotoZiXuan(){
+        find(zixuan).click();
+        return new ZiXuanPage();
     }
 }

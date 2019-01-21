@@ -8,10 +8,10 @@ import org.openqa.selenium.WebElement;
 public class BassPage {
     static AndroidElement find(By locator){
         try {
-            return Driver.getCurentDriver().findElement(locator);
+            return Driver.getCurrentDriver().findElement(locator);
         }catch(Exception e){
-            Driver.getCurentDriver().findElement(text("下次再说")).click();
-            return Driver.getCurentDriver().findElement(locator);
+            Driver.getCurrentDriver().findElement(text("下次再说")).click();
+            return Driver.getCurrentDriver().findElement(locator);
         }
     }
 

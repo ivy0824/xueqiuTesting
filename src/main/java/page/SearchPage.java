@@ -11,19 +11,23 @@ import static page.BassPage.find;
 
 public class SearchPage extends BassPage {
 
+    By stock=By.id("stockName");
+    By cancel=By.id("action_close");
+    By search=By.className("android.widget.EditText");
+
     public SearchPage search(String keyword){
-        find(By.className("android.widget.EditText")).sendKeys(keyword);
+        find(search).sendKeys(keyword);
         return this;
     }
 
     public MainPage cancel(){
-        find(By.id("action_close")).click();
+        find(cancel).click();
         return new MainPage();
     }
 
     public ArrayList<String> getAll(){
         ArrayList<String> array=new ArrayList<String>();
-        for(WebElement e: Driver.getCurentDriver().findElements(By.id("stockName"))){
+        for(WebElement e: Driver.getCurrentDriver().findElements(stock)){
             array.add(e.getText());
         }
         return array;
@@ -36,11 +40,11 @@ public class SearchPage extends BassPage {
 
     public ArrayList<String> addSelected(){
         ArrayList<String> array=new ArrayList<String>();
-        AndroidElement select=(AndroidElement) find(By.xpath("//*[contains(@resource-id,'follow) and contains(@resource-id,'_btn)]"));
-//        array.add(select.getAttribute("content-desc"));
+        WebElement select=find(By.xpath("//*[contains(@resource-id,'follow) and contains(@resource-id,'_btn)]"));
+        array.add(select.getAttribute("resourceId"));
         select.click();
-        AndroidElement select2=(AndroidElement) find(By.xpath("//*[contains(@resource-id,'follow) and contains(@resource-id,'_btn)]"));
-//        array.add(select2.getAttribute("resource-id"));
+        WebElement select2=find(By.xpath("//*[contains(@resource-id,'follow) and contains(@resource-id,'_btn)]"));
+        array.add(select2.getAttribute("resourceId"));
         return array;
     }
 
